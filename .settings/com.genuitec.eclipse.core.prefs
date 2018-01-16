@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js/zepto.js,WebRoot/js/jquery.mobile-1.4.5.min.js,WebRoot/js/jquery-2.1.3.min.js,WebRoot/js/oridomi.min.js,WebRoot/js/xxj.js,WebRoot/js/jquery.mobile-1.4.5.js
+validator.Unchecked=

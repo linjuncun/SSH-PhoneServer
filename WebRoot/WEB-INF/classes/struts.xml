@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+   "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+   "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+    <!-- 开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 扩展名改为action -->
+    <constant name="struts.action.extension" value="action"/>
+    <!-- 主题配置 -->
+    <constant name="struts.ui.theme" value="simple"/>
+    <!-- 乱码配置 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- 上传文件最大字节数 -->
+    <constant name="struts.multipart.maxSize" value="10701096" />
+
+    <include file="android_struts.xml"></include>
+    
+	<package name="default" namespace="/" extends="struts-default">
+	   
+	    <!-- 文件下载报错解决 -->
+	    <result-types> 
+            <result-type name="streamx" class="com.sunspoter.lib.web.struts2.dispatcher.StreamResultX"/> 
+        </result-types>  
+	    
+		<!-- 权限拦截器 -->
+		<interceptors>
+    		<!-- 声明拦截器 -->
+    		<interceptor name="checkPrivilege" class="com.ssh.oa.util.UserInterceptor"></interceptor>
+    		
+    		<!-- 重新定义默认的拦截器栈 -->
+    		<interceptor-stack name="defaultStack">
+    			<interceptor-ref name="checkPrivilege"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+
+		<!-- 全局的Result配置 -->
+		<global-results>
+			<result name="toLogin">/loginPublic.jsp</result>
+		</global-results>	
+	
+
+		<!-- 登陆验证 -->
+		<action name="loginAction" class="userLoginAction" method="userLogin">
+			<result name="loginUI">/index.jsp</result>
+			<!-- <result name="toIndex">/WEB-INF/jsp/loginRegister/mainIndex.jsp</result> -->
+			<result name="toIndex" type="redirectAction">findAllUser</result>
+		</action>
+		
+		
+        <!-- 跳转到主界面 -->
+		<action name="findAllUser" class="userMainAction" method="userMain">
+		   <result name="toMainIndex">/mainIndex.jsp</result>
+		</action>
+		
+		<!-- 查询联系人 -->
+		<action name="findUserAction" class="findUserAction" method="findUserByName">
+		    <result name="allUser" type="redirectAction">findAllUser</result>
+		    <result name="toMainIndex">/mainIndex.jsp</result>
+		</action>
+		
+		<!-- 添加联系人 -->
+		<action name="saveAction" class="saveUserAction" method="svaeUser">
+		  <result name="toMainIndex" >/savePublic.jsp</result>
+		</action>
+		
+		<!-- 删除修改联系人 -->
+		<action name="user_*" class="delectAndUpdateAction" method="{1}">
+			 <result name="toMainIndex" type="redirectAction">findAllUser</result>
+		</action>
+
+		<!-- 跳转到修改页面 -->
+		<action name="goto_*" class="gotoAction" method="{1}">
+		    <result name="gotoUpdateJsp">/update.jsp</result>
+		</action>
+		
+		<!-- 用户注册 -->	
+		<action name="register" class="registerAction" method="register">
+		  <result name="toRegister">/register.jsp</result>
+		  <result name="toLogin">/index.jsp</result>
+		</action>
+		
+		<!-- 忘记密码 -->
+		<action name="password" class="passwordAction" method="password">
+		  <result name="toPassword">/password.jsp</result>
+		</action>
+		
+		<!-- 用户注销 -->
+		<action name="logout" class="logoutAction" method="logout">
+		   <result name="toLogin">/loginPublic.jsp</result>
+		</action>
+		
+		<!-- 修改密码 -->
+		<action name="updatePass" class="updatePassAction" method="updatePass">
+		  <result name="toUpdatePass">/updatePass.jsp</result>
+		</action>
+		
+		<!-- 用户反馈 -->
+		<action name="message" class="messageAction" method="svaeMessage">
+		   <result name="toMessage">/userFeedBack.jsp</result>
+		</action>
+		
+		<!-- 查找个人信息 -->
+		<action name="personage_*" class="personageAction" method="{1}">
+		  <result name="toPersonage">/personage.jsp</result>
+		  <result name="toMore">/more.jsp</result>
+		</action>
+		
+		<!-- 文件下载 -->
+	    <action name="download" class="com.ssh.oa.view.action.DownloapAction">
+		     <result type="streamx">
+		       <param name="contentDisposition">attachment;filename="PhoneHelper.apk"</param>
+		       <param name="inputName">downloadFile</param>
+		     </result>
+	    </action>
+	    
+	    <!-- 图片上传 -->
+	    <action name="uploadAction" class="com.ssh.oa.view.action.UploadAction">
+	         
+		     <result name="success">/personage.jsp</result>
+		     <result name="eroor">/photoUpload.jsp</result>
+		     <interceptor-ref name="fileUpload">
+	                <!-- 文件过滤 -->
+	                <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,/image/jpg</param>
+	                <!-- 文件大小, 以字节为单位 -->
+	                <param name="maximumSize">10240000</param>
+	        </interceptor-ref>
+	        <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+	        <interceptor-ref name="defaultStack" />
+	    </action>
+	    
+	</package>
+
+</struts>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+   "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+   "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+	<package name="androidJson" namespace="/android" extends="json-default">
+	    
+		<!-- android助手登陆验证 -->
+		<action name="androidLogin" class="androidLoginAction" method="androidLogin">
+			<result type="json"> 
+			
+            </result>
+		</action>
+		
+		<!--手机联系人导入到数据库中  -->
+		<action name="saveUsers" class="androidSaveUsersAction" method="androidSave">
+			<result type="json"> 
+			
+            </result>
+		</action>
+		
+		<!--数据库中的联系人导出到手机  -->
+		<action name="sendUsers" class="sendUsersToAndroidAction" method="androidSend">
+			<result type="json"> 
+			
+            </result>
+		</action>
+		
+	</package>
+
+</struts>

@@ -1,0 +1,63 @@
+.save{
+    padding-top: 0px; 
+    max-width: 768px;
+    margin:0 auto; 
+    min-width: 320px;
+    background: url(../images/reg_bg.png) no-repeat;    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+   -moz-background-size:100% 100%;
+    background-size:100% 100%;
+    min-height:520px; 
+}
+.save img {
+    margin:45px 0 0 50%;
+}
+.save p{
+    display: block;
+    margin:20px 0 0 11%;
+    font-family: "Microsoft YaHei";
+    font-size: 24px;
+    color:#fff;
+    text-align: center;
+}
+
+.query_1{
+	width:316px;
+    height:45px;
+    line-height: 45px;
+	background-color:#03F;
+    border:1px solid #989898;
+    text-align: center;
+    margin:25px 0 0 11%;
+    color:#FFFF00;
+    font-family: "Microsoft YaHei";
+    display: block;
+}
+.select_1{
+	width:316px;
+	height:330px;
+	line-height: 35px;
+	border:0px solid #000;
+	text-align:center;
+	margin:25px 0 0 11%;
+	display: block;
+	color:#000;
+	}
+.indext{
+	width:316px;
+	height:45px;
+	line-height: 35px;
+	border:1px solid #000;
+	text-align:center;
+	margin:25px 0 0 11%;
+	background-color:#000;
+	display: block;
+	}
+.index_div{
+	width:83%;
+	height:45px;
+	line-height: 35px;
+	text-align:center;
+	display: block;
+	float: right;
+}
+

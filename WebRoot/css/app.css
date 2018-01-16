@@ -1,0 +1,187 @@
+body, input, select, textarea, button, .ui-btn {
+	font: normal 100% "Microsoft YaHei", Arial, sans-serif;
+}
+
+body {
+	/* Setting body margins to 0 to have proper positioning of #container div */
+	margin: 0;
+}
+
+/* #container div with absolute position and 100% width and height so it takes up whole window */
+#container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.webFullDiv {
+		width: 100%
+}
+
+@media screen and (min-width: 800px) {
+	#container {
+		width: 750px
+	}
+	.ui-header-fixed {
+		width: 750px
+	}
+	.ui-footer-fixed {
+		width: 750px
+	}
+	.myloader {
+		left: 300px
+	}
+	.webFullDiv {
+		width: 600px
+	}
+}
+
+
+
+.myloader {
+	background: white;
+}
+
+.ui-loader-default {
+	opacity: 1 !important;
+}
+
+.custom-spinner {
+	width: 37px !important;
+	height: 37px !important;
+	background-image: url('../img/ajax-loader.gif');
+	opacity: 1 !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.abcd {
+	font-size: smaller !important;
+	color: red !important;
+	border-width: 0px !important;
+}
+
+.selected {
+	background-color: aliceblue !important;
+}
+
+.small {
+	font-size: 0.875em;
+}
+
+.h1 {
+	font-size: 1.5em;
+}
+
+/*.ui-btn.ui-btn-active {
+ background-color: #2471db !important;;
+ border-color: #2471db !important;;
+ color: #fff !important;;
+ text-shadow: 0 0px 0 #059 !important;;
+ }*/
+ 
+.companyDetail ul.ui-listview {
+	margin-top: 1em;
+	border-top: none;
+}
+.companyDetail .ui-listview > .ui-li-static {
+	line-height: 1.5em;
+}
+.companyDetail .ui-listview > .ui-li-static span {
+	text-align: left;
+	display: inline-block;
+	float: right;
+	white-space: normal;
+	width: 68%;/*overflow: hidden;text-overflow: ellipsis;white-space: nowrap;*/
+}
+.materialDetail .ui-listview > .ui-li-static span {
+	text-align: left;
+	display: inline-block;
+	float: right;
+	white-space: normal;
+	width: 68%;/*overflow: hidden;text-overflow: ellipsis;white-space: nowrap;*/
+}
+
+/*.companyDetail ul li span{float:right;}*/
+
+.companyDetail .noBorUl.ui-listview > .ui-first-child.ui-last-child {
+	border-bottom: none;
+	border-top: none;
+}
+
+.addMatInfo ul.ui-listview {
+	margin-top: 1em;
+	border-top: none;
+}
+.addMatInfo .ui-listview > .ui-li-static {
+	line-height: 1.5em;
+}
+.addMatInfo .ui-listview > .ui-li-static input {
+	text-align: left;
+	display: inline-block;
+	float: right;
+	white-space: normal;
+	width: 60%;/*overflow: hidden;text-overflow: ellipsis;white-space: nowrap;*/
+}
+
+/*.comFootDiv.ui-bar-f{background-color:#2b2e33;}
+ .comFootDiv a{text-shadow:none; color:#fff; text-decoration:none;font-size:1em; font-weight:normal;}
+ .comFootDiv .comFoot{-moz-box-flex:2.0;-webkit-box-flex:2.0; box-flex:2.0;background-color:#2b2e33;}
+ .comFootDiv .comFoot ul li{font-size:.8em;}
+ .comFootDiv .comFoot ul li.first{font-size:1em; text-shadow:none; color:#fff;}
+
+ .comFootDiv .comFootR ul li{line-height:1.5em; font-size:1em;}
+ .comFootDiv .comFootR{-moz-box-flex:1.0;-webkit-box-flex:1.0; box-flex:1.0;background-color:#d24f00; text-align:center;}
+ .comFootDiv .comFootR ul{padding:0em .2em;}*/
+
+.telDiv, .callDiv {
+	text-align: center;
+	color: #fff;
+	text-shadow: none;
+	font-weight: normal;
+	height: 5em;
+}
+.telDiv div {
+	line-height: 1.5em;
+}
+.telDiv {
+	background-color: #d24f00;
+}
+.callDiv.ui-block-b {
+	background-color: #307adb;
+}
+html .ui-footer.ui-bar-a .callDiv.ui-block-b .ui-btn.ui-btn-active {
+	background-color: #307adb;
+}
+
+.ui-grid-a > .telDiv.ui-block-a, .ui-grid-a > .callDiv.ui-block-b {
+	padding: .5em 0em;
+}
+
+.priceDiv {
+	overflow: hidden;
+	line-height: 3em;
+}
+.priceDiv .label {
+	float: left;
+}
+.priceDiv .label span, .priceDiv1 .label span {
+	font-size: 1.2em;
+}
+.priceDiv .price, .priceDiv1 .price {
+	font-szie: 1.2em;
+	color: darkorange;
+	width: 68%;
+}
+.priceDiv .price {
+	float: right;
+}
+.priceDiv1 {
+	overflow: hidden;
+	line-height: 1.5em;
+}
+
+.listImg img {
+	position: relative;
+	top: 3px;
+}

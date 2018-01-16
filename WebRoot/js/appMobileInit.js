@@ -1,0 +1,1 @@
+$(document).on("mobileinit",function(){$.mobile.pageContainer=$("#container");$.mobile.defaultPageTransition="none"});
